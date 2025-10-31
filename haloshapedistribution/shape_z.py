@@ -21,7 +21,7 @@ import csv
 
 # CALCULATING PARTICLE MASS
 def run_control_par(run) :# reading control.par file from run
-    file_name = f"/share/testde/ucapwhi/GowerStreetExtendedSims/runsW/{run}/control.par"
+    file_name = f"/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/control.par"
     variable = {}
     print("About to read {}".format(file_name))
     with open(file_name, "r") as in_file :
