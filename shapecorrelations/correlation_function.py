@@ -12,7 +12,7 @@ import math
 mp.rcParams['agg.path.chunksize'] = 10000 # to adjust size (suggested by a previous error)
 
 # READING THE COVO OUTPUT FILE
-file_name = f"/path/to/file" #koki
+file_name = "/export/koki1/visitor4/covo/covo/Gowersims/runsW/run243/test" #koki
 print("About to read {}".format(file_name))
 data = pd.read_csv(file_name, sep='\s+')
 
@@ -29,19 +29,18 @@ def plot_data_correl():
     ax[0].set_xscale('log')
     ax[0].set_xlabel('Distance r')
     ax[0].set_ylabel('Correlation')
-    ax[0].set_title('Correlation function of semi-major axis a (run394, z=0)')
+    ax[0].set_title('Correlation function of semi-major axis a (run243, z=0)')
     ax[0].legend()
     ax[0].grid(True)
     ax[1].errorbar(r, r12_v1b, yerr = r12_v1b_std, xerr = None, label = 'moment of inertia', color='blue')
     ax[1].set_xscale('log')
     ax[1].set_xlabel('Distance r')
     ax[1].set_ylabel('Correlation')
-    ax[1].set_title('Correlation function of moment of inertia (run394, z=0)')
+    ax[1].set_title('Correlation function of semi-minor axis c (run243, z=0)')
     ax[1].legend()
     ax[1].grid(True)
     plt.tight_layout()
-    plt.savefig(f"correlation_functions_-.5_z0_run394_plot.png", dpi = 300)
+    plt.savefig(f"modified-correlation_functions_-.5_z0_run243_plot.png", dpi = 300)
 
 # EXECUTION
 plot_data_correl()
-

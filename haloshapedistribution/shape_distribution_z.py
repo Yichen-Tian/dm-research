@@ -20,7 +20,7 @@ mp.rcParams['agg.path.chunksize'] = 10000 # to adjust size (suggested by a previ
 
 # CALCULATING PARTICLE MASS
 def run_control_par(run) :# reading control.par file from run
-    #file_name = f"/Users/orianenyembo/Internship_2025_UCL/control.par”
+    #file_name = f"/Users/orianenyembo/Internship_2025_UCL/control.par"
     file_name = f"/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/control.par"
     variable = {}
     print("About to read {}".format(file_name))
@@ -53,7 +53,7 @@ def fof_file_format_experiment(time_slice) :
 
     #file_name = f"/export/koki1/visitor1/Gowersims/runs/runsW/run243fof/fof/run.{time_slice}.fofstats.0"
     #file_name = f"/Users/orianenyembo/Internship_2025_UCL/GowerStreetExtendedSims/runsW/run243/fof/run.{time_slice}.fofstats.0"
-    file_name = f"/share/testde/ucapwhi/GowerStreetExtendedSims/runsW/{run}/fof/run.{time_slice}.fofstats.0"
+    file_name = f"/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/fof/run.{time_slice}.fofstats.0"
     print("About to read {}".format(file_name))
     with open(file_name, "rb") as in_file:
         data = np.fromfile(in_file, dtype = fof_type)
@@ -149,7 +149,7 @@ def plot_contour(time_slice, run) :
 
 # EXECUTION
 
-runs = ['run394','run273','run378','run355']
+runs = ['run243']
 #times = [str(i).zfill(5) for i in range(1, 101)]
 #for time_slice in times :
 for run in runs :

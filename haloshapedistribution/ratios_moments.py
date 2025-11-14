@@ -43,11 +43,10 @@ def moments(ratio) : #moments(time_slice, run, ratio) : #ratio is r_ca_data or r
     mean = np.mean(ratio) # mean, 1st moment
     variance = np.var(ratio, ddof=1) # variance, 2nd moment
     skewness = skew(ratio) # skewness, 3rd moment
-    return mean, variance, skewness
-    
+    return mean, variance, skewness 
 # READING REDSHIFT VALUES
 def read_z_values(run):
-    file_name = f'/share/testde/ucapwhi/GowerStreetExtendedSims/runsW/{run}/z_values.txt'
+    file_name = f'/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/z_values.txt'
     data = np.genfromtxt(file_name, delimiter=',')#, names=True, dtype=None, encoding='utf-8')
     return data[:, 2]
   
@@ -67,7 +66,7 @@ def fof_file_format_experiment(time_slice, run) :
        ('mass_env_0', np.float32, 1),
        ('mass_env_1', np.float32, 1), 
        ('half_mass_radius', np.float32, 1)])
-    file_name = f"/share/testde/ucapwhi/GowerStreetExtendedSims/runsW/{run}/fof/run.{time_slice}.fofstats.0"
+    file_name = f"/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/fof/run.{time_slice}.fofstats.0"
     print("About to read {}".format(file_name))
     with open(file_name, "rb") as in_file:
         data = np.fromfile(in_file, dtype = fof_type)
@@ -151,8 +150,8 @@ def plot_moments(times, run) :
             writer.writerow([time_slice, z, mean_r_ca, var_r_ca, skew_r_ca, mean_r_ba, var_r_ba, skew_r_ba])
 
 # EXECUTION
-runs = ['run243','run355'] #example
+runs = ['run243'] #example
 for run in runs :
-    times = [str(i).zfill(5) for i in range(1, 101)] #loops inside the function
+    times = ['00100'] #loops inside the function
     plot_moments(times, run)
 

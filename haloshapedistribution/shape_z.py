@@ -33,7 +33,7 @@ def run_control_par(run) :# reading control.par file from run
     return dBoxSize, nGrid, dOmega0, h
 
 def read_z_values(run):
-    file_name = f'/share/testde/ucapwhi/GowerStreetExtendedSims/runsW/{run}/z_values.txt'
+    file_name = f'/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/z_values.txt'
     data = np.genfromtxt(file_name, delimiter=',')#, names=True, dtype=None, encoding='utf-8')
     return data[:, 2]
 
@@ -54,7 +54,7 @@ def fof_file_format_experiment(time_slice, run) :
        ('mass_env_0', np.float32, 1),
        ('mass_env_1', np.float32, 1), 
        ('half_mass_radius', np.float32, 1)])
-    file_name = f"/share/testde/ucapwhi/GowerStreetExtendedSims/runsW/{run}/fof/run.{time_slice}.fofstats.0"
+    file_name = f"/export/koki1/visitor4/covo/covo/Gowersims/runsW/{run}/fof/run.{time_slice}.fofstats.0"
     print("About to read {}".format(file_name))
     with open(file_name, "rb") as in_file:
         data = np.fromfile(in_file, dtype = fof_type)
@@ -106,12 +106,11 @@ def shape(run, data, time_slice, redshift_val) :
         print(f"Time slice {time_slice} in run {run} processed :)")
 
 def get_run_shapes(run) :
-    times = [str(i).zfill(5) for i in range(1, 101)]
-    redshift_val = read_z_values(run)
-    for time_slice,z in zip(times, redshift_val) :
+    times = ['00100']   # 只跑最后一个时间片调试
+    for time_slice in times :
         data = fof_file_format_experiment(time_slice, run)
-        shape(run, data, time_slice=time_slice, redshift_val=redshift_val)
+        shape(run, data, time_slice=time_slice, redshift_val=None)
 
 # EXECUTION
-get_run_shapes(run='run???')
+get_run_shapes(run='run243')
 
