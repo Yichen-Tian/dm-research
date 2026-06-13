@@ -1,0 +1,38 @@
+# all generated outputs
+shapecorrelations/results_*/
+shapecorrelations/*.csv
+
+# temporary files
+shapecorrelations/_tmp_*
+
+# logs
+*.log
+
+# data formats
+*.npy
+*.npz
+*.h5
+*.hdf5
+
+# python
+__pycache__/
+*.pyc
+# COVO generated inputs/results
+
+cat >> .gitignore <<'EOF'
+
+# runtime leftovers
+nohup.out
+*.pid
+
+# optional: ignore generated figures in shapecorrelations
+shapecorrelations/*.png
+EOF
+*.pdf
+*.swp
+*.swo
+haloshapedistribution/
+understandingshapes/
+Miniforge3.sh
+shapecorrelations/cosmo_txt/
+shapecorrelations/Miniforge3.sh
